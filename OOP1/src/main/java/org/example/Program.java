@@ -41,7 +41,7 @@ public class Program {
                 System.out.print("Введите ID клиента: ");
                 Scanner idInput = new Scanner( System.in );
                 System.out.println("Клиент успешно найден!");
-            case 2 : ClientAccount clientAccount = new AbstractAccount(
+
         }
     }
     public static void clientSwitch(){
