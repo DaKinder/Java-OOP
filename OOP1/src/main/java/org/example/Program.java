@@ -28,26 +28,30 @@ import java.util.Scanner;
 public class Program {
     public static void employeeSwitch(){
         System.out.println("Добро пожаловать в программу сотрудника банка!");
-        System.out.print("Выберете пункт меню: ");
         System.out.println("1 - Просмотреть информацию о клиенте");
         System.out.println("2 - Добавить клиента");
         System.out.println("3 - Изменить размер комиссии");
+        System.out.print("Выберете пункт меню: ");
 
         Scanner input = new Scanner( System.in );
         int choose  =  input.nextInt();
+
+
+
 
         switch (choose){
             case 1 :
                 System.out.print("Введите ID клиента: ");
                 Scanner idInput = new Scanner( System.in );
                 System.out.println("Клиент успешно найден!");
+            case 2 : creditClientAdder();
 
         }
     }
     public static void clientSwitch(){
 
     }
-    public void creditClientAdder(){
+    public static void creditClientAdder(){
         Scanner clientData = new Scanner( System.in );
         System.out.print("Введите имя клиента: ");
         String name = clientData.next();
@@ -61,7 +65,7 @@ public class Program {
         System.out.print("Год: ");
         final int YEAR = clientData.nextInt();
 
-        ClientAccount client = new CreditAccount( String name, String surname, new BirthDate(YEAR, MONTH, DAY),  )
+        //ClientAccount client = new CreditAccount( String name, String surname, new BirthDate(YEAR, MONTH, DAY),  )
     }
 
     public static void main(String[] args) throws Exception {
