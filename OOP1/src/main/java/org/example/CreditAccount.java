@@ -1,6 +1,6 @@
 package org.example;
 
-public class CreditAccount extends Account{
+public class CreditAccount extends AbstractAccount implements ClientAccount {
 
     private double commissionPercent = 1.0;
 

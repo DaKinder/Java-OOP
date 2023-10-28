@@ -21,16 +21,66 @@ package org.example;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.temporal.ChronoUnit;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
 public class Program {
-    public static void main(String[] args) throws Exception
-    {
-        LocalDate today = LocalDate.of(2023, Month.SEPTEMBER, 5);
+    public static void employeeSwitch(){
+        System.out.println("Добро пожаловать в программу сотрудника банка!");
+        System.out.print("Выберете пункт меню: ");
+        System.out.println("1 - Просмотреть информацию о клиенте");
+        System.out.println("2 - Добавить клиента");
+        System.out.println("3 - Изменить размер комиссии");
 
-        Account account1 = new Account("Mikhail", "Antonov", new BirthDate(1984,8,12), 500);
-        CreditAccount account2 = new CreditAccount("Andrey", "Gorin", new BirthDate(2004,6,16), 1000);
-        DepositAccount account3 = new DepositAccount("Ivan", "Suchkov", new BirthDate(1944, 1, 19), today, 700);
-        //account1.take(-700);
-        account3.take(-300);
+        Scanner input = new Scanner( System.in );
+        int choose  =  input.nextInt();
+
+        switch (choose){
+            case 1 :
+                System.out.print("Введите ID клиента: ");
+                Scanner idInput = new Scanner( System.in );
+                System.out.println("Клиент успешно найден!");
+            case 2 : ClientAccount clientAccount = new AbstractAccount(
+        }
     }
+    public static void clientSwitch(){
+
+    }
+    public void creditClientAdder(){
+        Scanner clientData = new Scanner( System.in );
+        System.out.print("Введите имя клиента: ");
+        String name = clientData.next();
+        System.out.print("Введите фамилию клиента: ");
+        String surname = clientData.next();
+        System.out.println("Введите дату рождения.");
+        System.out.print("Число: ");
+        final int DAY = clientData.nextInt();
+        System.out.print("Месяц: ");
+        final int MONTH = clientData.nextInt();
+        System.out.print("Год: ");
+        final int YEAR = clientData.nextInt();
+
+        ClientAccount client = new CreditAccount( String name, String surname, new BirthDate(YEAR, MONTH, DAY),  )
+    }
+
+    public static void main(String[] args) throws Exception {
+        Scanner console = new Scanner( System.in );
+        System.out.println("---Банк Россия---");
+
+        System.out.print("Введите ваше ID: ");
+        int idNumber = console.nextInt();
+        System.out.print("Введите пароль: ");
+        String password = console.next();
+
+        boolean access = Employee.checkAccount(idNumber, password);
+        if(access){employeeSwitch();}
+        else clientSwitch();
+
+        System.out.println();
+
+            
+
+    }
+
 }

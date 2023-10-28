@@ -4,19 +4,20 @@ import java.time.LocalDate;
 
 import static org.example.Dates.checkForWithdrawing;
 
-public class DepositAccount extends Account {
+public class DepositAccount extends AbstractAccount implements ClientAccount {
     final LocalDate accountOpeningDay;
     final LocalDate lastWithdrawal;
 
-    public DepositAccount(String name, String surname, BirthDate birthDate, LocalDate accountOpeningDay, double amount) {
+    public DepositAccount(String name, String surname, BirthDate birthDate, double amount) {
         super(name, surname, birthDate, amount);
-        this.accountOpeningDay = this.lastWithdrawal = accountOpeningDay;
+        LocalDate today = LocalDate.now();
+        this.accountOpeningDay = this.lastWithdrawal = today;
     }
 
     @Override
     public void take(double amount) {
         if (checkForWithdrawing(accountOpeningDay, lastWithdrawal)) {
-            amount = Account.checkAmountSign(amount);
+            amount = AbstractAccount.checkAmountSign(amount);
             if(amount > this.amount) {
                 Notifications.notEnoughFunds(this.amount);
             }
