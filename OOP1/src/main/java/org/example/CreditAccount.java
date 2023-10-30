@@ -1,6 +1,6 @@
 package org.example;
 
-public class CreditAccount extends AbstractAccount implements ClientAccount {
+public class CreditAccount extends AbstractAccount implements Account {
 
     private double commissionPercent = 1.0;
 
@@ -16,6 +16,7 @@ public class CreditAccount extends AbstractAccount implements ClientAccount {
 
     @Override
     public void take(double amount) {
-        super.amount = getAmount() - amount - (amount * commissionPercent / 100);
+        super.amount -= (amount * commissionPercent / 100);
+        super.take( amount );
     }
 }

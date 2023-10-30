@@ -1,21 +1,19 @@
 package org.example;
 
-/*
- * 1. Создать класс "Счет в банке" - Account.
- * У этого класса должно быть поле с текущим балансом на счете.
- * У этого класса должно быть 3 метода:
- * - (put) Пополнить счет - принимат положительное число, увеличивает текущий баланс
- * - (take) Вывести средства - принимат положительное число, уменьшает текущий баланс
- * - (getAmount) Показать баланс - ничего не принимает, возвращает текущий баланс (getter)
+/**
+ * Модифицируем пример, описанный в предыдущем домашнем задании (со счетами).
  *
- * 2. Создать несколько наследников.
- * - Кредитный счет (CreditAccount)
- * Особенность: на каждое снятие нужно наложить комиссию в размере 1% от суммы снятия.
- * То есть, если снимаем 100 у.е., то снять нужно 101.
- * - Депозитный счет (DepositAccount) *
- * Особенность: нельзя снимать средства чаще, чем раз в месяц.
- * То есть, нужно завести поле с датой последнего снятия, и использовать его.
- * (Для дат лучше использовать LocalDate, пример в классе Dates в проекте урока)
+ * 1. Класс Account превратить в интерфейс с методами:
+ * # double getAmount() - получение текущего баланса
+ * # void put(double amount) - пополнить счет
+ * # void take(double amount) - снять средства со счета
+ *
+ * 2. Создать базовый абстрактный класс AbstractAccount, в котором будет общая часть:
+ * # поле с балансом
+ * # конструктор, который принимает начальное значение баланса
+ * # реализация всех методов
+ *
+ * 3. Добавить еще один класс FixedAmountAccount с особенностью: методы put, take НЕ изменяют баланс.
  */
 
 import java.time.LocalDate;
@@ -26,65 +24,13 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class Program {
-    public static void employeeSwitch(){
-        System.out.println("Добро пожаловать в программу сотрудника банка!");
-        System.out.println("1 - Просмотреть информацию о клиенте");
-        System.out.println("2 - Добавить клиента");
-        System.out.println("3 - Изменить размер комиссии");
-        System.out.print("Выберете пункт меню: ");
-
-        Scanner input = new Scanner( System.in );
-        int choose  =  input.nextInt();
-
-
-
-
-        switch (choose){
-            case 1 :
-                System.out.print("Введите ID клиента: ");
-                Scanner idInput = new Scanner( System.in );
-                System.out.println("Клиент успешно найден!");
-            case 2 : creditClientAdder();
-
-        }
-    }
-    public static void clientSwitch(){
-
-    }
-    public static void creditClientAdder(){
-        Scanner clientData = new Scanner( System.in );
-        System.out.print("Введите имя клиента: ");
-        String name = clientData.next();
-        System.out.print("Введите фамилию клиента: ");
-        String surname = clientData.next();
-        System.out.println("Введите дату рождения.");
-        System.out.print("Число: ");
-        final int DAY = clientData.nextInt();
-        System.out.print("Месяц: ");
-        final int MONTH = clientData.nextInt();
-        System.out.print("Год: ");
-        final int YEAR = clientData.nextInt();
-
-        //ClientAccount client = new CreditAccount( String name, String surname, new BirthDate(YEAR, MONTH, DAY),  )
-    }
 
     public static void main(String[] args) throws Exception {
-        Scanner console = new Scanner( System.in );
-        System.out.println("---Банк Россия---");
-
-        System.out.print("Введите ваше ID: ");
-        int idNumber = console.nextInt();
-        System.out.print("Введите пароль: ");
-        String password = console.next();
-
-        boolean access = Employee.checkAccount(idNumber, password);
-        if(access){employeeSwitch();}
-        else clientSwitch();
-
-        System.out.println();
-
-            
-
+        Account account = new CreditAccount( "Ivan", "Poopov", new BirthDate( 2023, 5, 10 ),300 );
+        account.take( 100 );
+        account.take( 100 );
+        account.take( 100 );
+        account.put( 50 );
     }
 
 }

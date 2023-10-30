@@ -1,6 +1,6 @@
 package org.example;
 
-public interface ClientAccount{
+public interface Account {
 
     double getAmount();
     public void put(double amount);

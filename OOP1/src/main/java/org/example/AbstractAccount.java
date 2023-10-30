@@ -1,27 +1,16 @@
 package org.example;
 
-public class AbstractAccount implements ClientAccount {
+public class  AbstractAccount implements Account {
     private String name;
     private String surname;
     private BirthDate birthDate;
-    private int id;
-
-    private static int idCounter = 100;
-    private static int counter;
     protected double amount;
 
     protected String getName(){return name;}
     protected String getSurname(){return surname;}
     protected BirthDate getBirthDate(){return birthDate;}
     public double getAmount(){return amount;}
-    public int getId(){return id;}
-    public static int getIdCounter(){return idCounter;}
-    public static int getCounter(){return counter;}
-    public void setAmount(double amount){this.amount = amount;}
-    {
-        id = ++idCounter;
-        counter++;
-    }
+
     public AbstractAccount(String name, String surname, BirthDate birthDate, double amount) {
         this.name = name;
         this.surname = surname;
