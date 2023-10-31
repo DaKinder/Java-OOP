@@ -27,12 +27,6 @@ public class Program {
 
     public static void main(String[] args) throws Exception {
         Account account = new CreditAccount( "Ivan", "Poopov", new BirthDate( 2023, 5, 10 ),300 );
-        account.take( 100 );
-        account.take( 100 );
-        account.take( 100 );
-        account.put( 50 );
-        DepositAccount account1 = new DepositAccount(  "Ivan", "Popov", new BirthDate( 2023, 5, 10 ),300);
-        account1.printInfo();
     }
 
 }
