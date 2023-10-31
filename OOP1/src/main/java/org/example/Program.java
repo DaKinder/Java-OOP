@@ -31,6 +31,8 @@ public class Program {
         account.take( 100 );
         account.take( 100 );
         account.put( 50 );
+        DepositAccount account1 = new DepositAccount(  "Ivan", "Popov", new BirthDate( 2023, 5, 10 ),300);
+        account1.printInfo();
     }
 
 }

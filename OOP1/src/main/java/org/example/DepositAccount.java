@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 import static org.example.Dates.checkForWithdrawing;
 
-public class DepositAccount extends AbstractAccount implements Account {
+public class DepositAccount extends AbstractAccount {
     final LocalDate accountOpeningDay;
     private LocalDate lastWithdrawal;
 
