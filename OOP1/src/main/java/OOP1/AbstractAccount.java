@@ -1,16 +1,17 @@
-package org.example;
+package OOP1;
 
 public class  AbstractAccount implements Account {
     private String name;
     private String surname;
     private BirthDate birthDate;
     protected double amount;
-
-    protected String getName(){return name;}
-    protected String getSurname(){return surname;}
-    protected BirthDate getBirthDate(){return birthDate;}
+    int employeeId;
+    public String getName(){return name;}
+    public String getSurname(){return surname;}
+    public BirthDate getBirthDate(){return birthDate;}
     public double getAmount(){return amount;}
 
+    public AbstractAccount(int employeeId){ this.employeeId = employeeId;}
     public AbstractAccount(String name, String surname, BirthDate birthDate, double amount) {
         this.name = name;
         this.surname = surname;

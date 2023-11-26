@@ -1,8 +1,6 @@
-package org.example;
+package OOP1;
 
 import java.time.LocalDate;
-
-import static org.example.Dates.checkForWithdrawing;
 
 public class DepositAccount extends AbstractAccount {
     final LocalDate accountOpeningDay;
@@ -17,7 +15,7 @@ public class DepositAccount extends AbstractAccount {
     @Override
     public void take(double amount) {
         LocalDate today = LocalDate.now();
-        if (checkForWithdrawing(accountOpeningDay, lastWithdrawal)) {
+        if (Dates.checkForWithdrawing(accountOpeningDay, lastWithdrawal)) {
             super.take(amount);
             lastWithdrawal = today;
         } else Notifications.wrongDate(lastWithdrawal);

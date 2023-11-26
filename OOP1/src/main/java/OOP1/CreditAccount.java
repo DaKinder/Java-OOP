@@ -1,4 +1,4 @@
-package org.example;
+package OOP1;
 
 public class CreditAccount extends AbstractAccount{
 

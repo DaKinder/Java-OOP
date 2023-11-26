@@ -1,4 +1,4 @@
-package org.example;
+package OOP1;
 
 /**
  * Модифицируем пример, описанный в предыдущем домашнем задании (со счетами).
@@ -16,17 +16,11 @@ package org.example;
  * 3. Добавить еще один класс FixedAmountAccount с особенностью: методы put, take НЕ изменяют баланс.
  */
 
-import java.time.LocalDate;
-import java.time.Month;
-import java.time.temporal.ChronoUnit;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
-
 public class Program {
 
     public static void main(String[] args) throws Exception {
-        Account account = new CreditAccount( "Ivan", "Poopov", new BirthDate( 2023, 5, 10 ),300 );
+        Account account = new DepositAccount( "Ivan", "Popov", new BirthDate( 1993,10,02 ), 100 );
+
     }
 
 }
